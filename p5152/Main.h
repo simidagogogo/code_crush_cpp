@@ -21,11 +21,17 @@ class Main {
  public:
   static int main() {
       // 1. 输入
-      int n;
-      cin >> n;
-      vector<int> arr(n);
-      for (int i = 0; i < n; ++i) {
-          cin >> arr[i];
+      string s;
+      getline(cin, s, '\n');
+      int n = stoi(s);
+
+      string line;
+      getline(cin, line, '\n');
+      stringstream iss(line);
+      string token;
+      vector<int> arr;
+      while (iss >> token) {
+          arr.push_back(stoi(token));
       }
 
       // 2. 调用Solution执行
@@ -33,12 +39,9 @@ class Main {
       solution.insertSort(arr, n);
 
       // 3. 输出
-      // printf("output: \n");
       for (int i = 0; i < n; ++i) {
-          // printf("%d ", arr[i]);
           cout << arr[i] << " ";
       }
-      // printf("\n");
       return 0;
   }
 
